@@ -1,4 +1,7 @@
 import pygame
+import sys
+import getopt
+
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -24,16 +27,16 @@ class Square():
         return BLACK if self.state == 1 else WHITE
 
 
-def create_board():
+def create_board(wide, high):
     board = []
 
-    for row in range(50):
+    for row in range(high):
         rowBoard = []
-        for col in range(101):
+        for col in range(wide):
             currSquare = Square(left=(Square.margin + Square.width) * col + Square.margin,
                                 top=(Square.margin + Square.width) * row + Square.margin,
                                  state=0)
-            if row == 0 and col == 50:
+            if row == 0 and col == wide // 2:
                 currSquare.state = 1
             rowBoard.append(currSquare)
         board.append(rowBoard)
@@ -74,12 +77,27 @@ def getNextState(ruleSet, board, i, j):
 
     return ruleSet[tuple([leftNeighbor, topNeighbor, rightNeighbor])]
 
-def main():
-    screen = pygame.display.set_mode([1214, 602])
+def main(argv):
+    wide=101
+    high = 50
+    try:
+        opts, args = getopt.getopt(argv, "w:h:", ["width=", "height="])
+    except getopt.GetoptError:
+        print ('test.py -w <width> -h <height>')
+        sys.exit(2)
+
+    for opt, arg in opts:
+        if opt in ("-w", "--width"):
+            wide = int(arg)
+        elif opt in ("-h", "--height"):
+            high = int(arg)
+
+
+    screen = pygame.display.set_mode([(wide * Square.width) + (2 * (wide + 1)), (high * Square.width) + (2 * (high + 1))])
     done = False
     clock = pygame.time.Clock()
 
-    board = create_board()
+    board = create_board(wide, high)
     ruleSet = getRuleSet(182)
     updateBoard(ruleSet, board)
 
@@ -106,4 +124,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
