@@ -1,6 +1,5 @@
 # Cellular Automata
 
-## Description
 In this repository there are 2 command line scripts. `CellularAutomata.py` is a script I wrote that can be run from the command line to see the different patterns that each rule can generate in 1-D. `GameOfLife.py` is another command line script that can be run to emulate [Conways Game Of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). As described in [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/cellular-automata/) cellular automata is a process in which discrete units (cells) will interact with one another to form the next automaton based on an extremely simple rule. Starting from a single living cell for `CellularAutomata.py` or a few living cells for `GameOfLife.py`, extremely intricate patterns can be made from applying many iterations.
 
 ## My Motivations
