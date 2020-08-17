@@ -10,4 +10,9 @@ By default ```width = 101```, ```height = 50``` and ```rule = 30```
 
 ### Sample Runs
 ```main.py -r 90```
-![Rule 90] (/Rule30.png/)
+![Rule 90](https://github.com/aivan6842/CellularAutomata/blob/master/Images/Rule90.PNG)
+```main.py -r 30```
+![Rule 30]()
+
+```main.py -r 147```
+![Rule 147]()
