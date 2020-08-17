@@ -12,7 +12,10 @@ By default ```width = 101```, ```height = 50``` and ```rule = 30```
 ```main.py -r 90```
 ![Rule 90](https://github.com/aivan6842/CellularAutomata/blob/master/Images/Rule90.PNG)
 ```main.py -r 30```
-![Rule 30]()
+![Rule 30](https://github.com/aivan6842/CellularAutomata/blob/master/Images/Rule30.PNG)
 
 ```main.py -r 147```
-![Rule 147]()
+![Rule 147](https://github.com/aivan6842/CellularAutomata/blob/master/Images/Rule147.PNG)
+
+## My Motivations
+Very early in my days of computing I came along cellular automata but didn't quite understand it. A few years later I listened to a podcast interviewing Lex Fridman who talked about Nick Bostrom's famous simulation hypothesis. Lex went on to explain how the idea of having something so simple generate very complex patterns can be one way that reality could have potentially been simulated. Obviously Lex was not suggesting that something like the script I wrote can be used to simulate reality, but just the idea its self that having something so simple like a single decimal value between 0-255 can generate such sophisticated patterns was very intriguing and I decided to dig deeper. From the outside the concept of this project seemed extremely easy and to be completely honest it wasn't the hardest project I have ever worked on. However, I thoroughly enjoyed learning about cellular automata and the different contributions its has made to the scientific world. To me, it seemed that the more I dig into this idea, the more I uncovered or learned. 
