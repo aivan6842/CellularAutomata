@@ -1,31 +1,11 @@
 import pygame
+from Square import Square
 import sys
 import getopt
 
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-pygame.init()
-
-class Square():
-
-    margin = 2
-    width = 10
-
-    def __init__(self, left, top, state):
-        self.left=left
-        self.top=top
-        self.state=state
-
-    def getState(self):
-        return self.state
-
-    def getPos(self):
-        return (self.left, self.top)
-
-    def getColor(self):
-        return BLACK if self.state == 1 else WHITE
-
 
 def create_board(wide, high):
     board = []
@@ -80,10 +60,11 @@ def getNextState(ruleSet, board, i, j):
 def main(argv):
     wide=101
     high = 50
+    ruleNum = 30
     try:
-        opts, args = getopt.getopt(argv, "w:h:", ["width=", "height="])
+        opts, args = getopt.getopt(argv, "w:h:r:", ["width=", "height=", "rule="])
     except getopt.GetoptError:
-        print ('test.py -w <width> -h <height>')
+        print ('test.py -w <width> -h <height> -r <rule>')
         sys.exit(2)
 
     for opt, arg in opts:
@@ -91,14 +72,17 @@ def main(argv):
             wide = int(arg)
         elif opt in ("-h", "--height"):
             high = int(arg)
+        elif opt in ("-r", "--rule"):
+            ruleNum = int(arg)
 
+    pygame.init()
 
     screen = pygame.display.set_mode([(wide * Square.width) + (2 * (wide + 1)), (high * Square.width) + (2 * (high + 1))])
     done = False
     clock = pygame.time.Clock()
 
     board = create_board(wide, high)
-    ruleSet = getRuleSet(182)
+    ruleSet = getRuleSet(ruleNum)
     updateBoard(ruleSet, board)
 
     while not done:
