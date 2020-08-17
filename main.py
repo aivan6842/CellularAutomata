@@ -41,21 +41,19 @@ def create_board():
 
     return board
 
-# def toBinaryArray(num):
-#     return [int(x) for x in f'{num:08b}']
+def toBinaryArray(num):
+    return [int(x) for x in f'{num:08b}']
 
-def getRuleSet():
+def getRuleSet(num):
 
-    ruleSet = {
-    (1, 1, 1): 0,
-    (1, 1, 0): 1,
-    (1, 0, 1): 0,
-    (1, 0, 0): 1,
-    (0, 1, 1): 1,
-    (0, 1, 0): 0,
-    (0, 0, 1): 1,
-    (0, 0, 0): 0
-    }
+    arr = toBinaryArray(num)
+    print(arr)
+    ruleSet = {}
+    j=7
+    for i in range(len(arr)):
+        pos = tuple([int(x) for x in f'{j:03b}'])
+        ruleSet[pos] = arr[i]
+        j-=1
 
     return ruleSet
 
@@ -65,8 +63,7 @@ def main():
     clock = pygame.time.Clock()
 
     board = create_board()
-    print(getRuleSet())
-    exit()
+    ruleSet = getRuleSet(30)
 
     while not done:
         for event in pygame.event.get():
