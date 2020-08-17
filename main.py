@@ -2,13 +2,12 @@ import pygame
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-MARGIN = 2
-SQUARE_WIDTH = 10
 pygame.init()
 
 class Square():
 
     margin = 2
+    width = 10
 
     def __init__(self, left, top, state):
         self.left=left
@@ -31,8 +30,8 @@ def create_board():
     for row in range(50):
         rowBoard = []
         for col in range(101):
-            currSquare = Square(left=(MARGIN + SQUARE_WIDTH) * col + MARGIN,
-                                top=(MARGIN + SQUARE_WIDTH) * row + MARGIN,
+            currSquare = Square(left=(Square.margin + Square.width) * col + Square.margin,
+                                top=(Square.margin + Square.width) * row + Square.margin,
                                  state=0)
             if row == 0 and col == 50:
                 currSquare.state = 1
@@ -81,7 +80,7 @@ def main():
     clock = pygame.time.Clock()
 
     board = create_board()
-    ruleSet = getRuleSet(90)
+    ruleSet = getRuleSet(182)
     updateBoard(ruleSet, board)
 
     while not done:
@@ -98,15 +97,12 @@ def main():
                 pygame.draw.rect(screen,
                                 color,
                                 [pos[0], pos[1],
-                                SQUARE_WIDTH,
-                                SQUARE_WIDTH])
+                                Square.width,
+                                Square.width])
 
         clock.tick(60)
 
         pygame.display.flip()
-
-    print(len(board[0]), len(board))
-
 
 
 if __name__ == '__main__':
