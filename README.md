@@ -28,7 +28,7 @@ To enable a delay between state changes add ```-s 1``` at the end for your comma
 
 ## CellularAutomata 1-D
 In `CellularAutomata.py` the rule is given by a single 8-bit binary value, thus having 256 rules (0-255). For example, for rule 30 this corresponds to the following: 
-![Rule 30] (https://github.com/aivan6842/CellularAutomata/blob/master/Images/Rule30Explain.PNG)
+![Rule 30](https://github.com/aivan6842/CellularAutomata/blob/master/Images/Rule30Explain.PNG)
 
 ### Running the Script
 Prior to running this script please ensure that you have ```pygame``` installed. This script can be run from the command line or from any IDE. To run from command line simply write the follwing and specify the parameter:
